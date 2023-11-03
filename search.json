@@ -1,16 +1,16 @@
 [
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
-    "section": "",
-    "text": "Code\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
-  },
-  {
     "objectID": "spectrometers.html",
     "href": "spectrometers.html",
     "title": "Spectrometers",
     "section": "",
     "text": "Code\nusing Plots, NPZ, Interpolations, DelimitedFiles\n\n\n\n\nCode\ncal_factor = npzread(\"data/cal_factor.npz\")\n\nplot(cal_factor[5:end-5],\n    xlabel=\"wavelength index\",\n    ylabel=\"radiance/count (μW/m²/sr/nm)\",\n    xticks=0:100:1024,\n    label=\"calibration factor\")"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Code\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
   }
 ]
