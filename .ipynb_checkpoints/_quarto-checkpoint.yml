@@ -3,3 +3,16 @@ project:
   output-dir: docs
 execute:
   freeze: auto
+website:
+  title: "LeafSpectroscopy.jl"
+  navbar:
+    left:
+      - href: intro.ipynb
+        text: Home
+      - about.ipynb
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
