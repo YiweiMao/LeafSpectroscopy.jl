@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Code\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
+  }
+]

@@ -24,3 +24,4 @@ deps/src/
 Manifest.toml
 
 /.quarto/
+/_site/
