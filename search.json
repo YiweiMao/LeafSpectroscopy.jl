@@ -1,10 +1,24 @@
 [
   {
+    "objectID": "tutorial-instrument.html",
+    "href": "tutorial-instrument.html",
+    "title": "Using Ocean Insight Spectometers",
+    "section": "",
+    "text": "Code\nusing NPZ"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This is a project to experimentally verify fluorescence yields in leaves and to model the dynamics under light sources across the visible spectrum.\nThe team consists of Yiwei Mao, Christian Frankenberg, Yujie Wang, and Yinon Bar-On. Contributions to the project can be made to our Github repository."
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "Code\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
+    "text": "Welcome to LeafSpectroscopy.jl\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
   },
   {
     "objectID": "spectrometers.html",
