@@ -1,0 +1,10 @@
+/* css styles */
+.navbar-brand {
+    position: relative;
+    /*background: url(data/clima-logo.png);*/
+    width: 80px;
+    left: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

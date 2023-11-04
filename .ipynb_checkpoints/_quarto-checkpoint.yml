@@ -4,15 +4,42 @@ project:
 execute:
   freeze: auto
 website:
-  title: "LeafSpectroscopy.jl"
+  google-analytics: "G-WPM46XDMMW"
+  favicon: "data/favicon.ico"
+  title: ""
   navbar:
+    background: primary
+    logo: "data/clima-logo.png"
     left:
       - href: intro.ipynb
         text: Home
       - about.ipynb
+    tools:
+      - icon: twitter
+        href: https://twitter.com/ewaymao
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/YiweiMao/LeafSpectroscopy.jl
+          - text: Report a Bug
+            url:  https://github.com/YiweiMao/LeafSpectroscopy.jl/issues
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Background"
+        contents:
+          - intro.ipynb
+      - section: "Method"
+        contents:
+          - spectrometers.ipynb
+
+          
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
