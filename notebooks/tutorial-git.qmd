@@ -1,0 +1,90 @@
+---
+title: "Git for the beginner"
+subtitle: ""
+description: "A quick overview"
+author: "Yiwei Mao"
+date: "11/04/2023"
+draft: true
+format:
+  html:
+    code-fold: false
+---
+
+
+# What is Git?
+
+Git is a tool that facilitates version control for your code and documentation. It is essential for any software collaboration. The most popular service for git is GitHub which allows you to create free repositories hosted by GitHub and collobrate with others. It also includes more services such as Github Pages (documentation website hosting), Github Actions (automated continuous integration tests and deployment), and Codespaces (workspaces with options for higher memory and GPUs). 
+
+While there is a bit of a learning curve, it will make your life so much easier when developing software collaboratively. 
+
+The following is some common terminology you might come across. 
+
+## Repository (repo)
+
+A repository is a directory where all your files live. 
+
+## Readme.md
+The readme file is written in markdown and it is standard to include one in the root directory of the repository. 
+
+## Branch
+
+You can create a branch using
+```bash
+git branch X
+```
+where X is the name of your new branch. Any changes made on a branch does not affect the main (used to be called master) branch. 
+
+## Checkout
+To move between branches, use 
+```bash
+git checkout X
+```
+where X is the name of your branch. 
+
+
+## Commit
+To add all your changes to commit by using
+```bash
+git add .
+```
+and then create a commit with a commit message
+```bash
+git commit -m "some_descriptive_commit_message"
+```
+
+Files can be selectively ignored - such as build files - by defining them in `.gitignore`.
+
+
+## Rebase
+Rebasing integrates changes from one branch to another and changes the branch to start at a different commit (sort of like pretending you started work from the new point). 
+
+## Merge
+To merge two branch together, you would use
+```bash
+git merge
+```
+
+If there are merge conflicts, you'll need to deal with those...
+
+## Stash
+To create a savepoint of your current changes you can use 
+```bash
+git stash
+```
+
+## Pull
+You can download the latest version by using 
+```bash
+git pull
+```
+and alternatively, to check if there are new changes, you can use
+```bash
+git fetch
+```
+
+When someone wants to merge changes (features or bug fixes) to the main branch, this would be a pull request. The developer will then comment on the pull request and choose to accept the changes or not. 
+
+
+# Further resources
+
+Checkout the GitHub documentation.

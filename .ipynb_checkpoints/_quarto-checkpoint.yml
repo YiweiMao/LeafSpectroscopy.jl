@@ -5,15 +5,15 @@ execute:
   freeze: auto
 website:
   google-analytics: "G-WPM46XDMMW"
-  favicon: "data/favicon.ico"
-  title: ""
+  favicon: "./data/leaf-small.ico"
+  title: "LeafSpectroscopy.jl"
   navbar:
     background: primary
-    logo: "data/clima-logo.png"
+    logo: "./data/clima-logo.png"
     left:
-      - href: intro.ipynb
+      - href: notebooks/intro.ipynb
         text: Home
-      - about.ipynb
+      - notebooks/about.ipynb
     tools:
       - icon: twitter
         href: https://twitter.com/ewaymao
@@ -29,17 +29,28 @@ website:
     contents:
       - section: "Background"
         contents:
-          - intro.ipynb
+          - notebooks/intro.ipynb
       - section: "Method"
         contents:
-          - spectrometers.ipynb
-
+          - notebooks/spectrometers.ipynb
+      - section: "Tutorials"
+        contents:
+          - notebooks/tutorial-quarto.ipynb
+          - notebooks/tutorial-julia.ipynb
+          - notebooks/tutorial-git.qmd
+          - notebooks/tutorial-instrument.ipynb
           
+  comments: 
+    utterances:
+      repo: YiweiMao/LeafSpectroscopy.jl
+
+bibliography:
+  - refs.bib  
 
 format:
   html:
     theme:
-      light: flatly
+      light: cosmo
       dark: darkly
     css: styles.css
     toc: true
