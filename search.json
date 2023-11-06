@@ -1,30 +1,107 @@
 [
   {
-    "objectID": "tutorial-instrument.html",
-    "href": "tutorial-instrument.html",
+    "objectID": "notebooks/tutorial-instrument.html",
+    "href": "notebooks/tutorial-instrument.html",
     "title": "Using Ocean Insight Spectometers",
     "section": "",
-    "text": "Code\nusing NPZ"
+    "text": "Code\nusing Plots\nusing CSV\nusing DataFrames\nCode\nQEpro_cal = CSV.read(\"../data/QEpro_calibration.csv\", DataFrame)\nQEpro_cal\n\n\n1044×3 DataFrame1019 rows omitted\n\n\n\nRow\nwavelengths\ncal_factor\nsensitivity\n\n\n\nFloat64\nFloat64\nFloat64\n\n\n\n\n1\n474.034\n0.000690216\n3.0215\n\n\n2\n474.427\n0.000695744\n3.01961\n\n\n3\n474.82\n0.000689268\n3.07297\n\n\n4\n475.213\n0.000688138\n3.09845\n\n\n5\n475.606\n1.22639e-6\n1751.04\n\n\n6\n475.999\n1.19702e-6\n1804.46\n\n\n7\n476.391\n1.16907e-6\n1857.47\n\n\n8\n476.784\n1.14371e-6\n1908.85\n\n\n9\n477.177\n1.12144e-6\n1959.14\n\n\n10\n477.57\n1.10247e-6\n2008.0\n\n\n11\n477.962\n1.08453e-6\n2056.72\n\n\n12\n478.355\n1.06645e-6\n2103.65\n\n\n13\n478.747\n1.04824e-6\n2151.69\n\n\n⋮\n⋮\n⋮\n⋮\n\n\n1033\n854.489\n2.32563e-6\n1644.02\n\n\n1034\n854.833\n2.3813e-6\n1600.32\n\n\n1035\n855.176\n2.45543e-6\n1545.99\n\n\n1036\n855.52\n2.53909e-6\n1488.27\n\n\n1037\n855.864\n2.61646e-6\n1437.62\n\n\n1038\n856.207\n2.68559e-6\n1395.2\n\n\n1039\n856.551\n2.76499e-6\n1350.68\n\n\n1040\n856.894\n2.87088e-6\n1296.55\n\n\n1041\n857.237\n0.00101976\n3.63456\n\n\n1042\n857.581\n0.00108351\n3.40198\n\n\n1043\n857.924\n0.00108922\n3.375\n\n\n1044\n858.267\n0.00107324\n3.41799\nCode\n\nplot(QEpro_cal.wavelengths[10:end-10],QEpro_cal.cal_factor[10:end-10],\n    xlabel=\"wavelengths (nm)\",ylabel=\"arb. units\",label=\"overall calibration factor\")\nCode\n\nplot(QEpro_cal.wavelengths[10:end-10],QEpro_cal.sensitivity[10:end-10],\n    xlabel=\"wavelengths (nm)\",ylabel=\"arb. units\",label=\"sensitivity\")"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "notebooks/tutorial-instrument.html#flame-spectrometer",
+    "href": "notebooks/tutorial-instrument.html#flame-spectrometer",
+    "title": "Using Ocean Insight Spectometers",
+    "section": "Flame Spectrometer",
+    "text": "Flame Spectrometer\n\n\nCode\ndark = \"../data/led_sources/dark.txt\"\nuv   = \"../data/led_sources/405nm_withdark.txt\"\nblue = \"../data/led_sources/470nm_withdark.txt\"\ngreen= \"../data/led_sources/533nm_withdark.txt\"\nred  = \"../data/led_sources/635nm_withdark.txt\"\n\nfunction sum_gaussians(x, A, mu, sigma, c)\n    return A .* exp.( .- ( (x .- mu)./sigma ).^2 ) .+ c\nend\n\n\nsum_gaussians (generic function with 1 method)\n\n\n\n\nCode\ndf = DataFrame(CSV.File(dark,delim='\\t',skipto=15))\nrename!(df, 1=&gt;:wavelengths, 2=&gt;:counts)\nλs = df.wavelengths\ndark_data = df.counts\n\ndf = DataFrame(CSV.File(uv,delim='\\t',skipto=15))\nrename!(df, 1=&gt;:wavelengths, 2=&gt;:counts)\nuv_data = df.counts\nuv_data .-= dark_data\nuv_data ./= maximum(uv_data)\n\ndf = DataFrame(CSV.File(blue,delim='\\t',skipto=15))\nrename!(df, 1=&gt;:wavelengths, 2=&gt;:counts)\nblue_data = df.counts\nblue_data .-= dark_data\nblue_data ./= maximum(blue_data)\n\ndf = DataFrame(CSV.File(green,delim='\\t',skipto=15))\nrename!(df, 1=&gt;:wavelengths, 2=&gt;:counts)\ngreen_data = df.counts\ngreen_data .-= dark_data\ngreen_data ./= maximum(green_data)\n\ndf = DataFrame(CSV.File(red,delim='\\t',skipto=15))\nrename!(df, 1=&gt;:wavelengths, 2=&gt;:counts)\nred_data = df.counts\nred_data .-= dark_data\nred_data ./= maximum(red_data)\n\n_\n\n\n\n\nCode\nλs_used = λs[10:end-10]\nplot_obj = plot(λs_used,uv_data[10:end-10],color=:magenta,label=\"UV LED\")\nplot!(λs_used,sum_gaussians(λs_used,1,405,17,0),color=:magenta,linestyle=:dash,label=\"UV bell\")\nplot!(λs_used,blue_data[10:end-10],color=:blue,label=\"Blue LED\")\nplot!(λs_used,sum_gaussians(λs_used,1,470,18,0),color=:blue,linestyle=:dash,label=\"Blue bell\")\nplot!(λs_used,green_data[10:end-10],color=:green,label=\"Green LED\")\nplot!(λs_used,sum_gaussians(λs_used,1,533,36,0),color=:green,linestyle=:dash,label=\"Green bell\")\nplot!(λs_used,red_data[10:end-10],color=:red,label=\"Red LED\")\nplot!(λs_used,sum_gaussians(λs_used,1,635,14,0),color=:red,linestyle=:dash,label=\"Red bell\")\n\nxlabel!(plot_obj,\"wavelength (nm)\")\nylabel!(plot_obj,\"normalized amplitude\")\nxlims!(plot_obj,(350,750))"
+  },
+  {
+    "objectID": "notebooks/spectrometers.html",
+    "href": "notebooks/spectrometers.html",
+    "title": "Spectrometers",
+    "section": "",
+    "text": "Code\nusing Plots, NPZ, Interpolations, DelimitedFiles\n\n\n\n\nCode\ncal_factor = npzread(\"data/cal_factor.npz\")\n\nplot(cal_factor[5:end-5],\n    xlabel=\"wavelength index\",\n    ylabel=\"radiance/count (μW/m²/sr/nm)\",\n    xticks=0:100:1024,\n    label=\"calibration factor\")"
+  },
+  {
+    "objectID": "notebooks/tutorial-quarto.html",
+    "href": "notebooks/tutorial-quarto.html",
+    "title": "How to contribute",
+    "section": "",
+    "text": "This repository is a collection of Jupyter notebooks that is autogenerated into this documentation website using Quarto. These notebooks can be run using VScode or Jupyter Lab. The purpose of this guide is to get you setup using Julia in Juypyter notebooks and inspire you to create a documentation site of your own."
+  },
+  {
+    "objectID": "notebooks/tutorial-quarto.html#quarto-commands",
+    "href": "notebooks/tutorial-quarto.html#quarto-commands",
+    "title": "How to contribute",
+    "section": "Quarto Commands",
+    "text": "Quarto Commands\nAssuming you now have a repo setup (or using this one), you can preview the documentation site locally by running the following in a repository directory.\nquarto preview\nTo update the deployed website, you can run\nquarto publish gh-pages\n\n\n\n\n\n\nTip\n\n\n\nYou can also litter your documentation with coloured callout boxes like this one. See https://quarto.org/docs/authoring/callouts.html for how to do these."
+  },
+  {
+    "objectID": "notebooks/tutorial-quarto.html#jupyter-lab-packages",
+    "href": "notebooks/tutorial-quarto.html#jupyter-lab-packages",
+    "title": "How to contribute",
+    "section": "Jupyter Lab Packages",
+    "text": "Jupyter Lab Packages\nTo use Julia in Jupyter, you will also need some Julia specific packages installed. These can be added using\n\nusing Pkg\nPkg.add(\"Revise\")\nPkg.add(\"IJulia\")\nPkg.build(\"IJulia\") # add to Jupyter kernel list\n\nIf somehow old Julia versions appear in Jupyter that you want gone, you can use\njupyter kernelspec list\nto find the offending versions then remove them using\njupyter kernelspec uninstall julia-X.Y\nreplacing X.Y with the version number."
+  },
+  {
+    "objectID": "notebooks/tutorial-quarto.html#vscode-extensions",
+    "href": "notebooks/tutorial-quarto.html#vscode-extensions",
+    "title": "How to contribute",
+    "section": "VScode extensions",
+    "text": "VScode extensions\nTo use Julia in VScode, you will need to install the extensions julia and julia-vscode."
+  },
+  {
+    "objectID": "notebooks/about.html",
+    "href": "notebooks/about.html",
     "title": "About",
     "section": "",
     "text": "This is a project to experimentally verify fluorescence yields in leaves and to model the dynamics under light sources across the visible spectrum.\nThe team consists of Yiwei Mao, Christian Frankenberg, Yujie Wang, and Yinon Bar-On. Contributions to the project can be made to our Github repository."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
+    "objectID": "notebooks/tutorial-julia.html",
+    "href": "notebooks/tutorial-julia.html",
+    "title": "Julia for the beginner*",
     "section": "",
-    "text": "Welcome to LeafSpectroscopy.jl\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
+    "text": "I am approaching this as someone familiar with programming in Python which I think is most people. This guide is a summary of my learning experience in the hope that it is helpful for others learning Julia for the first time."
   },
   {
-    "objectID": "spectrometers.html",
-    "href": "spectrometers.html",
-    "title": "Spectrometers",
+    "objectID": "notebooks/tutorial-julia.html#revise.jl",
+    "href": "notebooks/tutorial-julia.html#revise.jl",
+    "title": "Julia for the beginner*",
+    "section": "Revise.jl",
+    "text": "Revise.jl\nRevise.jl is a Julia package that provides a way to update function definitions in a running Julia session. This package is particularly useful during development, where you might iteratively change your code and want those changes to be reflected in your session without restarting it.\nThe key feature of Revise.jl is that it can track changes in your source code and, upon saving the file, automatically update those changes in the Julia environment. This means that after editing your Julia source files, the changes can be immediately tested in the REPL, Jupyter notebook, or other interactive environments without the need for manual recompilation or restarting Julia.\nPkg.add(\"Revise\")\n\nusing Revise"
+  },
+  {
+    "objectID": "notebooks/tutorial-julia.html#other-julia-resources",
+    "href": "notebooks/tutorial-julia.html#other-julia-resources",
+    "title": "Julia for the beginner*",
+    "section": "Other Julia resources",
+    "text": "Other Julia resources\nFor a summary of Julia features, check out https://cheatsheet.juliadocs.org/.\nI went through the MIT course introducing Julia which was excellently designed and motivated. Highly recommended!\nThe course is called Introduction to Computational Thinking https://computationalthinking.mit.edu/Fall23/ and I think it is well titled as I certainly had to develop a different way of thinking to code in Julia. Below are some major points that changes the way you code."
+  },
+  {
+    "objectID": "notebooks/tutorial-julia.html#structs-are-immutable",
+    "href": "notebooks/tutorial-julia.html#structs-are-immutable",
+    "title": "Julia for the beginner*",
+    "section": "Structs are immutable",
+    "text": "Structs are immutable\nA struct datatype is like a Python class with only immutable attributes. It defines a data type. To make a struct mutatble, simply use mutable struct instead of struct.\n\n# Define a mutable struct named Person\nmutable struct Person\n    name::String\n    age::Int\nend\n\n# Create an instance of Person\njulia = Person(\"Julia\", 30)\n\n# Since it's mutable, we can change the fields after creation\njulia.age = 31  # This is allowed and the age is updated to 31\n\nprintln(\"Name: \", julia.name, \", Age: \", julia.age)  # Outputs: Name: Julia, Age: 31\n\nName: Julia, Age: 31"
+  },
+  {
+    "objectID": "notebooks/tutorial-julia.html#more-macros",
+    "href": "notebooks/tutorial-julia.html#more-macros",
+    "title": "Julia for the beginner*",
+    "section": "More macros",
+    "text": "More macros\nHere are some more of the commonly used macros in Julia\n\n@macroexpand: This macro shows the result of the macro expansion, which is useful for understanding what the macro does to your code.\n@assert: This is used for assertions in your code. It throws an AssertionError if the condition is not met.\n@test: Part of Julia’s standard library Test, this macro is used for writing test cases.\n@inline / @noinline: These control whether the compiler should inline a particular function, which can sometimes improve or worsen performance.\n@eval: Used to evaluate an expression in the global scope, which can be useful in metaprogramming for generating code programmatically.\n@everywhere: In a distributed computing environment, this macro is used to define a function or variable in every process of a Julia session.\n@unpack / @pack: Provided by the Parameters.jl package, these macros are used for unpacking and packing variables into structures, which is particularly useful when dealing with many parameters or settings.\n\n\nusing Distributed\n\n# Add worker processes for parallel computation\naddprocs(4)  # Assuming you want to add 4 worker processes\n\n# A simple function to do some work, e.g., a costly computation\n@everywhere function do_work(x)\n    sleep(0.1)  # Simulating some work by sleeping for 0.1 seconds\n    return x^2\nend\n\n\n# Use @distributed to parallelize the loop\nresults = @distributed (+) for i in 1:100\n    do_work(i)\nend\n\n# 'results' will contain the sum of the squares of numbers from 1 to 100\nprintln(results)\n\n338350\n\n\nIn the above example, the (distributed?) macro is used with a reduction operation (+) that specifies how the results from each iteration should be combined—in this case, they are summed. The loop runs in parallel across the available worker processes, and each process runs a portion of the loop iterations. By using (everywhere?), the do_work function is defined across all processes."
+  },
+  {
+    "objectID": "notebooks/LeafSpectroscopy.html",
+    "href": "notebooks/LeafSpectroscopy.html",
+    "title": "LeafSpectroscopy",
     "section": "",
-    "text": "Code\nusing Plots, NPZ, Interpolations, DelimitedFiles\n\n\n\n\nCode\ncal_factor = npzread(\"data/cal_factor.npz\")\n\nplot(cal_factor[5:end-5],\n    xlabel=\"wavelength index\",\n    ylabel=\"radiance/count (μW/m²/sr/nm)\",\n    xticks=0:100:1024,\n    label=\"calibration factor\")"
+    "text": "Code\nusing Pkg; Pkg.activate(\".\")\n\n\n\n\nCode\nmodule LeafSpectroscopy\n# stuff\nend"
+  },
+  {
+    "objectID": "notebooks/intro.html",
+    "href": "notebooks/intro.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Welcome to LeafSpectroscopy.jl\n\n\n\nCode\nusing Pkg; Pkg.activate(\".\")\n\n\nThe photon flux (or intensity?) \\(n\\) in mol/m\\(^2\\)/s is given by \\[\n    n = \\frac{IV}{A N_A hc} \\lambda\n\\] where \\(I\\) is current, \\(V\\) is the forward voltage, \\(A\\) is the illumination area, \\(N_A=6.022\\times 10^{23}\\) is Avogadro’s constant, \\(h=6.626\\times 10^{-34}\\)~J\\(\\cdot\\)s\\(^{-1}\\) is Planck’s constant, \\(c=299792458\\)~m\\(\\cdot\\)s\\(^{-1}\\) is the speed of light, and \\(\\lambda\\) is the wavelength.\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
   }
 ]

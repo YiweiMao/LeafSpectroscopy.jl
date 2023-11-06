@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/tutorial-instrument.html</loc>
-    <lastmod>2023-11-04T04:36:46.965Z</lastmod>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-instrument.html</loc>
+    <lastmod>2023-11-06T08:44:33.675Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/about.html</loc>
-    <lastmod>2023-11-04T04:36:46.008Z</lastmod>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/spectrometers.html</loc>
+    <lastmod>2023-11-06T08:44:32.707Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/intro.html</loc>
-    <lastmod>2023-11-04T04:36:45.551Z</lastmod>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-quarto.html</loc>
+    <lastmod>2023-11-06T08:44:32.083Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/spectrometers.html</loc>
-    <lastmod>2023-11-04T04:36:46.480Z</lastmod>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/about.html</loc>
+    <lastmod>2023-11-06T08:44:31.007Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-julia.html</loc>
+    <lastmod>2023-11-06T08:44:31.671Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/LeafSpectroscopy.html</loc>
+    <lastmod>2023-11-06T08:44:32.383Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/intro.html</loc>
+    <lastmod>2023-11-06T08:44:33.019Z</lastmod>
   </url>
 </urlset>
