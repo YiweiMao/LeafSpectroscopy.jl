@@ -8,7 +8,7 @@
 
 <meta name="author" content="Yiwei Mao">
 <meta name="dcterms.date" content="2023-11-04">
-<meta name="description" content="Disclaimer: example codes were generated using ChatGPT and tested.">
+<meta name="description" content="Disclaimer: ChatGPT assisted.">
 
 <title>LeafSpectroscopy.jl - Julia for the beginner*</title>
 <style>
@@ -279,7 +279,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#types-and-functions-no-classes-and-methods" id="toc-types-and-functions-no-classes-and-methods" class="nav-link" data-scroll-target="#types-and-functions-no-classes-and-methods">Types and Functions (No Classes and Methods)</a>
   <ul class="collapse">
-  <li><a href="#structs-are-immutable" id="toc-structs-are-immutable" class="nav-link" data-scroll-target="#structs-are-immutable">Structs are immutable</a></li>
+  <li><a href="#structs-are-immutable-by-default" id="toc-structs-are-immutable-by-default" class="nav-link" data-scroll-target="#structs-are-immutable-by-default">Structs are immutable by default</a></li>
   </ul></li>
   <li><a href="#multiple-dispatch" id="toc-multiple-dispatch" class="nav-link" data-scroll-target="#multiple-dispatch">Multiple Dispatch</a></li>
   <li><a href="#broadcasting" id="toc-broadcasting" class="nav-link" data-scroll-target="#broadcasting">Broadcasting</a></li>
@@ -305,7 +305,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
 
 <div>
   <div class="description">
-    Disclaimer: example codes were generated using ChatGPT and tested.
+    Disclaimer: ChatGPT assisted.
   </div>
 </div>
 
@@ -428,9 +428,9 @@ The course is called Introduction to Computational Thinking <a href="https://com
 <pre><code>Car("Tesla Model S", 2020, true, 15000.0)</code></pre>
 </div>
 </div>
-<section id="structs-are-immutable" class="level2">
-<h2 class="anchored" data-anchor-id="structs-are-immutable">Structs are immutable</h2>
-<p>A struct datatype is like a Python class with only immutable attributes. It defines a data type. To make a struct mutatble, simply use <code>mutable struct</code> instead of <code>struct</code>.</p>
+<section id="structs-are-immutable-by-default" class="level2">
+<h2 class="anchored" data-anchor-id="structs-are-immutable-by-default">Structs are immutable by default</h2>
+<p>A struct datatype is like a Python class with only immutable attributes. It defines a data type. To make a struct mutable, simply use <code>mutable struct</code> instead of <code>struct</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a mutable struct named Person</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">mutable struct</span> Person</span>
@@ -453,7 +453,7 @@ The course is called Introduction to Computational Thinking <a href="https://com
 </section>
 <section id="multiple-dispatch" class="level1">
 <h1>Multiple Dispatch</h1>
-<p>This is my favourite part of using Julia which allows functions to specialise on types so that the behaviour of a function depends on the types of its arguments. In other words, it allows you to define functions with the same name but different behaviors depending on the types of their arguments. Here’s an example that demonstrates this:</p>
+<p>This is my favourite part of using Julia which allows functions to specialise on types so that the behaviour of a function depends on the types of its arguments. In other words, it allows you to define functions with the same name but with different behaviors depending on the types of their arguments. Here’s an example that demonstrates this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A simple function that takes one argument and prints a message</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">greet</span>(person<span class="op">::</span><span class="dt">String</span>)</span>

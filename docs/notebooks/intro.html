@@ -268,7 +268,18 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fiberoptics-pam-fluorometer-3050-f" id="toc-fiberoptics-pam-fluorometer-3050-f" class="nav-link active" data-scroll-target="#fiberoptics-pam-fluorometer-3050-f">Fiberoptics PAM-Fluorometer 3050-F</a></li>
+  <li><a href="#chlorophyll-fluorescence" id="toc-chlorophyll-fluorescence" class="nav-link" data-scroll-target="#chlorophyll-fluorescence">Chlorophyll Fluorescence</a></li>
+  <li><a href="#leds" id="toc-leds" class="nav-link" data-scroll-target="#leds">LEDs</a>
+  <ul class="collapse">
+  <li><a href="#photon-flux-for-modulating-beam" id="toc-photon-flux-for-modulating-beam" class="nav-link" data-scroll-target="#photon-flux-for-modulating-beam">Photon Flux for modulating beam</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -312,23 +323,105 @@ using Pkg; Pkg.activate(".")
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg; Pkg</span>.<span class="fu">activate</span>(<span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>The photon flux (or intensity?) <span class="math inline">\(n\)</span> in mol/m<span class="math inline">\(^2\)</span>/s is given by <span class="math display">\[
+<section id="fiberoptics-pam-fluorometer-3050-f" class="level1">
+<h1>Fiberoptics PAM-Fluorometer 3050-F</h1>
+<p>The PAM instrument without the gas exchange box is shown in Figure <strong>?@fig-pam-instrument</strong>.</p>
+<p><img src="../data/pam_instrument.png" class="img-fluid"></p>
+</section>
+<section id="chlorophyll-fluorescence" class="level1">
+<h1>Chlorophyll Fluorescence</h1>
+<p>Figure <strong>?@fig-pam-point</strong> shows the fluorescence feature under 2000 umol/m^2/s of PAR light.</p>
+<p><img src="../data/pam_point.png" class="img-fluid"></p>
+</section>
+<section id="leds" class="level1">
+<h1>LEDs</h1>
+<p>The LEDs and LED driver is shown in Figure <strong>?@fig-led-driver</strong>. The modulation for these LEDs can be controlled (E.g. square wave at 1 Hz 50% duty cycle) as well as the current.</p>
+<p><img src="../data/led_driver.png" class="img-fluid"></p>
+<section id="photon-flux-for-modulating-beam" class="level2">
+<h2 class="anchored" data-anchor-id="photon-flux-for-modulating-beam">Photon Flux for modulating beam</h2>
+<p>The photon flux (or intensity?) <span class="math inline">\(n\)</span> in μmol/m<span class="math inline">\(^2\)</span>/s is given by <span class="math display">\[
     n = \frac{IV}{A N_A hc} \lambda
-\]</span> where <span class="math inline">\(I\)</span> is current, <span class="math inline">\(V\)</span> is the forward voltage, <span class="math inline">\(A\)</span> is the illumination area, <span class="math inline">\(N_A=6.022\times 10^{23}\)</span> is Avogadro’s constant, <span class="math inline">\(h=6.626\times 10^{-34}\)</span>~J<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^{-1}\)</span> is Planck’s constant, <span class="math inline">\(c=299792458\)</span>~m<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^{-1}\)</span> is the speed of light, and <span class="math inline">\(\lambda\)</span> is the wavelength.</p>
+\]</span> where <span class="math inline">\(I\)</span> is current, <span class="math inline">\(V\)</span> is the forward voltage, <span class="math inline">\(A\)</span> is the illumination area, <span class="math inline">\(N_A=6.022\times 10^{23}\)</span> is Avogadro’s constant, <span class="math inline">\(h=6.626\times 10^{-34}\)</span> J<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^{-1}\)</span> is Planck’s constant, <span class="math inline">\(c=299792458\)</span> m<span class="math inline">\(\cdot\)</span>s<span class="math inline">\(^{-1}\)</span> is the speed of light, and <span class="math inline">\(\lambda\)</span> is the wavelength.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sin, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">x-&gt;sin</span>(<span class="fl">2</span>x), </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="fl">0</span>, </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="fl">2</span>π, </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     leg<span class="op">=</span><span class="cn">false</span>, </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     fill<span class="op">=</span>(<span class="fl">0</span>,<span class="op">:</span>lavender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>λ <span class="op">=</span> [<span class="fl">405</span>,<span class="fl">470</span>,<span class="fl">533</span>,<span class="fl">635</span>]<span class="op">.*</span><span class="fl">1e-9</span> <span class="co"># nm</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> <span class="fl">10e-3</span> <span class="co"># A</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> [<span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.4</span>, <span class="fl">2.2</span>] <span class="co"># V</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>N_A <span class="op">=</span> <span class="fl">6.022e23</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">6.626e-34</span> <span class="co"># J/s</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">299792458</span> <span class="co"># m/s</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="cn">π</span><span class="op">*</span><span class="fl">0.002</span><span class="op">^</span><span class="fl">2</span> <span class="co"># m²</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> I<span class="op">.*</span>V<span class="op">.*</span>λ <span class="op">./</span> (A<span class="op">*</span>N_A<span class="op">*</span>h<span class="op">*</span>c)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>n<span class="op">*</span><span class="fl">1e6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="fig-parametric" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div class="cell-output cell-output-display">
+<pre><code>4-element Vector{Float64}:
+  9429.753016929846
+ 10005.184153412689
+ 12055.448618892602
+  9293.379163774951</code></pre>
+</div>
+</div>
+<p>However, not all the light from the LED makes it through the fiber.</p>
+<p>Assuming the fiber core is 60 μm, most of the LED light is lost. Since the LED SMA diameter is 3 mm, around (60/3000)^2 of the LED output photon flux is able to make it through a single fiber. Also, assume that the optical efficiency of the fiber is around 90%. Therefore, the photon intensity for the blue fiber in μmol/m^2/s is</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>nn <span class="op">=</span> n<span class="op">*</span><span class="fl">1e6</span> <span class="op">*</span> (<span class="fl">60</span><span class="op">/</span><span class="fl">3000</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="fl">0.9</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(wavelength_nm<span class="op">=</span>λ, photon_flux_umol<span class="op">=</span>nn)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">wavelength_nm</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">photon_flux_umol</th>
+</tr>
+<tr class="odd subheader headerLastRow">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: right;">4.05e-7</td>
+<td style="text-align: right;">3.39471</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: right;">4.7e-7</td>
+<td style="text-align: right;">3.60187</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: right;">5.33e-7</td>
+<td style="text-align: right;">4.33996</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: right;">6.35e-7</td>
+<td style="text-align: right;">3.34562</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
 <!--?xml version="1.0" encoding="utf-8"?-->
 <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="600" height="400" viewbox="0 0 2400 1600">
 <defs>
@@ -373,12 +466,12 @@ using Pkg; Pkg.activate(".")
 <path clip-path="url(#clip790)" d="M50.9921 1446.19 L80.6679 1446.19 L80.6679 1450.12 L50.9921 1450.12 L50.9921 1446.19 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M91.5706 1459.08 L99.2095 1459.08 L99.2095 1432.72 L90.8993 1434.38 L90.8993 1430.12 L99.1632 1428.46 L103.839 1428.46 L103.839 1459.08 L111.478 1459.08 L111.478 1463.02 L91.5706 1463.02 L91.5706 1459.08 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M120.922 1457.14 L125.807 1457.14 L125.807 1463.02 L120.922 1463.02 L120.922 1457.14 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M145.992 1431.54 Q142.381 1431.54 140.552 1435.1 Q138.746 1438.64 138.746 1445.77 Q138.746 1452.88 140.552 1456.44 Q142.381 1459.98 145.992 1459.98 Q149.626 1459.98 151.431 1456.44 Q153.26 1452.88 153.26 1445.77 Q153.26 1438.64 151.431 1435.1 Q149.626 1431.54 145.992 1431.54 M145.992 1427.83 Q151.802 1427.83 154.857 1432.44 Q157.936 1437.02 157.936 1445.77 Q157.936 1454.5 154.857 1459.1 Q151.802 1463.69 145.992 1463.69 Q140.181 1463.69 137.103 1459.1 Q134.047 1454.5 134.047 1445.77 Q134.047 1437.02 137.103 1432.44 Q140.181 1427.83 145.992 1427.83 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M51.9875 1106.74 L81.6633 1106.74 L81.6633 1110.68 L51.9875 1110.68 L51.9875 1106.74 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M101.756 1092.09 Q98.1447 1092.09 96.316 1095.65 Q94.5104 1099.2 94.5104 1106.33 Q94.5104 1113.43 96.316 1117 Q98.1447 1120.54 101.756 1120.54 Q105.39 1120.54 107.196 1117 Q109.024 1113.43 109.024 1106.33 Q109.024 1099.2 107.196 1095.65 Q105.39 1092.09 101.756 1092.09 M101.756 1088.39 Q107.566 1088.39 110.621 1092.99 Q113.7 1097.58 113.7 1106.33 Q113.7 1115.05 110.621 1119.66 Q107.566 1124.24 101.756 1124.24 Q95.9456 1124.24 92.8669 1119.66 Q89.8114 1115.05 89.8114 1106.33 Q89.8114 1097.58 92.8669 1092.99 Q95.9456 1088.39 101.756 1088.39 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M121.918 1117.69 L126.802 1117.69 L126.802 1123.57 L121.918 1123.57 L121.918 1117.69 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M137.033 1089.01 L155.39 1089.01 L155.39 1092.95 L141.316 1092.95 L141.316 1101.42 Q142.334 1101.07 143.353 1100.91 Q144.371 1100.72 145.39 1100.72 Q151.177 1100.72 154.556 1103.9 Q157.936 1107.07 157.936 1112.48 Q157.936 1118.06 154.464 1121.16 Q150.992 1124.24 144.672 1124.24 Q142.496 1124.24 140.228 1123.87 Q137.982 1123.5 135.575 1122.76 L135.575 1118.06 Q137.658 1119.2 139.881 1119.75 Q142.103 1120.31 144.58 1120.31 Q148.584 1120.31 150.922 1118.2 Q153.26 1116.09 153.26 1112.48 Q153.26 1108.87 150.922 1106.77 Q148.584 1104.66 144.58 1104.66 Q142.705 1104.66 140.83 1105.08 Q138.978 1105.49 137.033 1106.37 L137.033 1089.01 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M100.76 752.645 Q97.1493 752.645 95.3206 756.209 Q93.515 759.751 93.515 766.881 Q93.515 773.987 95.3206 777.552 Q97.1493 781.094 100.76 781.094 Q104.395 781.094 106.2 777.552 Q108.029 773.987 108.029 766.881 Q108.029 759.751 106.2 756.209 Q104.395 752.645 100.76 752.645 M100.76 748.941 Q106.571 748.941 109.626 753.547 Q112.705 758.131 112.705 766.881 Q112.705 775.608 109.626 780.214 Q106.571 784.797 100.76 784.797 Q94.9502 784.797 91.8715 780.214 Q88.816 775.608 88.816 766.881 Q88.816 758.131 91.8715 753.547 Q94.9502 748.941 100.76 748.941 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M120.922 778.246 L125.807 778.246 L125.807 784.126 L120.922 784.126 L120.922 778.246 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M145.992 752.645 Q142.381 752.645 140.552 756.209 Q138.746 759.751 138.746 766.881 Q138.746 773.987 140.552 777.552 Q142.381 781.094 145.992 781.094 Q149.626 781.094 151.431 777.552 Q153.26 773.987 153.26 766.881 Q153.26 759.751 151.431 756.209 Q149.626 752.645 145.992 752.645 M145.992 748.941 Q151.802 748.941 154.857 753.547 Q157.936 758.131 157.936 766.881 Q157.936 775.608 154.857 780.214 Q151.802 784.797 145.992 784.797 Q140.181 784.797 137.103 780.214 Q134.047 775.608 134.047 766.881 Q134.047 758.131 137.103 753.547 Q140.181 748.941 145.992 748.941 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M101.756 413.199 Q98.1447 413.199 96.316 416.764 Q94.5104 420.306 94.5104 427.435 Q94.5104 434.542 96.316 438.107 Q98.1447 441.648 101.756 441.648 Q105.39 441.648 107.196 438.107 Q109.024 434.542 109.024 427.435 Q109.024 420.306 107.196 416.764 Q105.39 413.199 101.756 413.199 M101.756 409.496 Q107.566 409.496 110.621 414.102 Q113.7 418.685 113.7 427.435 Q113.7 436.162 110.621 440.769 Q107.566 445.352 101.756 445.352 Q95.9456 445.352 92.8669 440.769 Q89.8114 436.162 89.8114 427.435 Q89.8114 418.685 92.8669 414.102 Q95.9456 409.496 101.756 409.496 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M121.918 438.801 L126.802 438.801 L126.802 444.681 L121.918 444.681 L121.918 438.801 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M137.033 410.121 L155.39 410.121 L155.39 414.056 L141.316 414.056 L141.316 422.528 Q142.334 422.181 143.353 422.019 Q144.371 421.833 145.39 421.833 Q151.177 421.833 154.556 425.005 Q157.936 428.176 157.936 433.593 Q157.936 439.171 154.464 442.273 Q150.992 445.352 144.672 445.352 Q142.496 445.352 140.228 444.981 Q137.982 444.611 135.575 443.87 L135.575 439.171 Q137.658 440.306 139.881 440.861 Q142.103 441.417 144.58 441.417 Q148.584 441.417 150.922 439.31 Q153.26 437.204 153.26 433.593 Q153.26 429.982 150.922 427.875 Q148.584 425.769 144.58 425.769 Q142.705 425.769 140.83 426.185 Q138.978 426.602 137.033 427.482 L137.033 410.121 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M91.5706 101.3 L99.2095 101.3 L99.2095 74.9344 L90.8993 76.601 L90.8993 72.3418 L99.1632 70.6751 L103.839 70.6751 L103.839 101.3 L111.478 101.3 L111.478 105.235 L91.5706 105.235 L91.5706 101.3 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M120.922 99.3555 L125.807 99.3555 L125.807 105.235 L120.922 105.235 L120.922 99.3555 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip790)" d="M145.992 73.7538 Q142.381 73.7538 140.552 77.3186 Q138.746 80.8603 138.746 87.9898 Q138.746 95.0963 140.552 98.6611 Q142.381 102.203 145.992 102.203 Q149.626 102.203 151.431 98.6611 Q153.26 95.0963 153.26 87.9898 Q153.26 80.8603 151.431 77.3186 Q149.626 73.7538 145.992 73.7538 M145.992 70.0501 Q151.802 70.0501 154.857 74.6566 Q157.936 79.2399 157.936 87.9898 Q157.936 96.7167 154.857 101.323 Q151.802 105.906 145.992 105.906 Q140.181 105.906 137.103 101.323 Q134.047 96.7167 134.047 87.9898 Q134.047 79.2399 137.103 74.6566 Q140.181 70.0501 145.992 70.0501 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip792)" d="M1273.35 766.846 L1305.49 724.004 L1337.61 681.333 L1369.66 639.003 L1401.62 597.182 L1433.44 556.038 L1465.11 515.734 L1496.59 476.431 L1527.84 438.286 L1558.84 401.451 L1589.56 366.072 L1619.96 332.291 L1650.02 300.241 L1679.7 270.052 L1708.97 241.844 L1737.81 215.728 L1766.19 191.809 L1794.08 170.182 L1821.44 150.934 L1848.26 134.141 L1874.51 119.871 L1900.16 108.179 L1925.18 99.1126 L1949.56 92.7082 L1973.26 88.9912 L1996.26 87.9763 L2018.54 89.6675 L2040.08 94.0582 L2060.85 101.131 L2080.84 110.857 L2100.03 123.198 L2118.39 138.106 L2135.91 155.519 L2152.57 175.369 L2168.35 197.578 L2183.24 222.055 L2197.22 248.704 L2210.28 277.419 L2222.41 308.084 L2233.59 340.579 L2243.82 374.772 L2253.07 410.529 L2261.35 447.706 L2268.65 486.155 L2274.95 525.723 L2280.26 566.252 L2284.56 607.581 L2287.85 649.544 L2290.13 691.976 L2291.4 734.705 L2291.66 777.563 L2290.9 820.378 L2289.12 862.98 L2286.33 905.199 L2282.53 946.866 L2277.73 987.815 L2271.93 1027.88 L2265.12 1066.91 L2257.34 1104.74 L2248.57 1141.23 L2238.82 1176.22 L2228.12 1209.58 L2216.46 1241.18 L2203.87 1270.88 L2190.34 1298.58 L2175.9 1324.15 L2160.57 1347.51 L2144.34 1368.55 L2127.25 1387.19 L2109.31 1403.36 L2090.54 1416.99 L2070.95 1428.03 L2050.56 1436.43 L2029.4 1442.17 L2007.49 1445.21 L1984.85 1445.55 L1961.49 1443.18 L1937.45 1438.12 L1912.75 1430.38 L1887.41 1419.99 L1861.46 1407.01 L1834.92 1391.47 L1807.83 1373.44 L1780.2 1352.99 L1752.06 1330.2 L1723.45 1305.17 L1694.39 1278 L1664.9 1248.79 L1635.03 1217.65 L1604.8 1184.72 L1574.24 1150.12 L1543.38 1114 L1512.25 1076.49 L1480.88 1037.74 L1449.3 997.921 L1417.55 957.177 L1385.65 915.674 L1353.64 873.577 L1321.56 831.055 L1289.42 788.278 L1257.27 745.414 L1225.13 702.637 L1193.05 660.115 L1161.04 618.018 L1129.14 576.515 L1097.39 535.771 L1065.82 495.948 L1034.45 457.204 L1003.31 419.695 L972.453 383.57 L941.89 348.973 L911.658 316.041 L881.787 284.907 L852.306 255.693 L823.245 228.518 L794.632 203.488 L766.497 180.704 L738.866 160.256 L711.769 142.227 L685.231 126.687 L659.28 113.699 L633.941 103.315 L609.239 95.5759 L585.199 90.5126 L561.845 88.1455 L539.2 88.4838 L517.287 91.5263 L496.128 97.2608 L475.743 105.664 L456.154 116.704 L437.379 130.335 L419.438 146.503 L402.347 165.144 L386.125 186.184 L370.787 209.538 L356.349 235.114 L342.825 262.81 L330.229 292.515 L318.573 324.111 L307.868 357.471 L298.126 392.464 L289.356 428.949 L281.567 466.781 L274.767 505.808 L268.962 545.877 L264.158 586.826 L260.36 628.493 L257.572 670.712 L255.796 713.314 L255.035 756.129 L255.288 798.987 L256.557 841.716 L258.839 884.148 L262.133 926.111 L266.434 967.44 L271.739 1007.97 L278.043 1047.54 L285.339 1085.99 L293.619 1123.16 L302.876 1158.92 L313.101 1193.11 L324.283 1225.61 L336.411 1256.27 L349.472 1284.99 L363.455 1311.64 L378.345 1336.11 L394.127 1358.32 L410.785 1378.17 L428.303 1395.59 L446.664 1410.49 L465.848 1422.83 L485.838 1432.56 L506.612 1439.63 L528.151 1444.02 L550.432 1445.72 L573.435 1444.7 L597.134 1440.98 L621.508 1434.58 L646.532 1425.51 L672.181 1413.82 L698.429 1399.55 L725.249 1382.76 L752.617 1363.51 L780.503 1341.88 L808.881 1317.96 L837.721 1291.85 L866.996 1263.64 L896.676 1233.45 L926.731 1201.4 L957.132 1167.62 L987.848 1132.24 L1018.85 1095.41 L1050.1 1057.26 L1081.58 1017.96 L1113.25 977.654 L1145.08 936.51 L1177.03 894.689 L1209.08 852.359 L1241.2 809.688 L1273.35 766.846 L1273.35 766.846 L1241.2 766.846 L1209.08 766.846 L1177.03 766.846 L1145.08 766.846 L1113.25 766.846 L1081.58 766.846 L1050.1 766.846 L1018.85 766.846 L987.848 766.846 L957.132 766.846 L926.731 766.846 L896.676 766.846 L866.996 766.846 L837.721 766.846 L808.881 766.846 L780.503 766.846 L752.617 766.846 L725.249 766.846 L698.429 766.846 L672.181 766.846 L646.532 766.846 L621.508 766.846 L597.134 766.846 L573.435 766.846 L550.432 766.846 L528.151 766.846 L506.612 766.846 L485.838 766.846 L465.848 766.846 L446.664 766.846 L428.303 766.846 L410.785 766.846 L394.127 766.846 L378.345 766.846 L363.455 766.846 L349.472 766.846 L336.411 766.846 L324.283 766.846 L313.101 766.846 L302.876 766.846 L293.619 766.846 L285.339 766.846 L278.043 766.846 L271.739 766.846 L266.434 766.846 L262.133 766.846 L258.839 766.846 L256.557 766.846 L255.288 766.846 L255.035 766.846 L255.796 766.846 L257.572 766.846 L260.36 766.846 L264.158 766.846 L268.962 766.846 L274.767 766.846 L281.567 766.846 L289.356 766.846 L298.126 766.846 L307.868 766.846 L318.573 766.846 L330.229 766.846 L342.825 766.846 L356.349 766.846 L370.787 766.846 L386.125 766.846 L402.347 766.846 L419.438 766.846 L437.379 766.846 L456.154 766.846 L475.743 766.846 L496.128 766.846 L517.287 766.846 L539.2 766.846 L561.845 766.846 L585.199 766.846 L609.239 766.846 L633.941 766.846 L659.28 766.846 L685.231 766.846 L711.769 766.846 L738.866 766.846 L766.497 766.846 L794.632 766.846 L823.245 766.846 L852.306 766.846 L881.787 766.846 L911.658 766.846 L941.89 766.846 L972.453 766.846 L1003.31 766.846 L1034.45 766.846 L1065.82 766.846 L1097.39 766.846 L1129.14 766.846 L1161.04 766.846 L1193.05 766.846 L1225.13 766.846 L1257.27 766.846 L1289.42 766.846 L1321.56 766.846 L1353.64 766.846 L1385.65 766.846 L1417.55 766.846 L1449.3 766.846 L1480.88 766.846 L1512.25 766.846 L1543.38 766.846 L1574.24 766.846 L1604.8 766.846 L1635.03 766.846 L1664.9 766.846 L1694.39 766.846 L1723.45 766.846 L1752.06 766.846 L1780.2 766.846 L1807.83 766.846 L1834.92 766.846 L1861.46 766.846 L1887.41 766.846 L1912.75 766.846 L1937.45 766.846 L1961.49 766.846 L1984.85 766.846 L2007.49 766.846 L2029.4 766.846 L2050.56 766.846 L2070.95 766.846 L2090.54 766.846 L2109.31 766.846 L2127.25 766.846 L2144.34 766.846 L2160.57 766.846 L2175.9 766.846 L2190.34 766.846 L2203.87 766.846 L2216.46 766.846 L2228.12 766.846 L2238.82 766.846 L2248.57 766.846 L2257.34 766.846 L2265.12 766.846 L2271.93 766.846 L2277.73 766.846 L2282.53 766.846 L2286.33 766.846 L2289.12 766.846 L2290.9 766.846 L2291.66 766.846 L2291.4 766.846 L2290.13 766.846 L2287.85 766.846 L2284.56 766.846 L2280.26 766.846 L2274.95 766.846 L2268.65 766.846 L2261.35 766.846 L2253.07 766.846 L2243.82 766.846 L2233.59 766.846 L2222.41 766.846 L2210.28 766.846 L2197.22 766.846 L2183.24 766.846 L2168.35 766.846 L2152.57 766.846 L2135.91 766.846 L2118.39 766.846 L2100.03 766.846 L2080.84 766.846 L2060.85 766.846 L2040.08 766.846 L2018.54 766.846 L1996.26 766.846 L1973.26 766.846 L1949.56 766.846 L1925.18 766.846 L1900.16 766.846 L1874.51 766.846 L1848.26 766.846 L1821.44 766.846 L1794.08 766.846 L1766.19 766.846 L1737.81 766.846 L1708.97 766.846 L1679.7 766.846 L1650.02 766.846 L1619.96 766.846 L1589.56 766.846 L1558.84 766.846 L1527.84 766.846 L1496.59 766.846 L1465.11 766.846 L1433.44 766.846 L1401.62 766.846 L1369.66 766.846 L1337.61 766.846 L1305.49 766.846 L1273.35 766.846  Z" fill="#e6e6fa" fill-rule="evenodd" fill-opacity="1"></path>
 <polyline clip-path="url(#clip792)" style="stroke:#009af9; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="1273.35,766.846 1305.49,724.004 1337.61,681.333 1369.66,639.003 1401.62,597.182 1433.44,556.038 1465.11,515.734 1496.59,476.431 1527.84,438.286 1558.84,401.451 1589.56,366.072 1619.96,332.291 1650.02,300.241 1679.7,270.052 1708.97,241.844 1737.81,215.728 1766.19,191.809 1794.08,170.182 1821.44,150.934 1848.26,134.141 1874.51,119.871 1900.16,108.179 1925.18,99.1126 1949.56,92.7082 1973.26,88.9912 1996.26,87.9763 2018.54,89.6675 2040.08,94.0582 2060.85,101.131 2080.84,110.857 2100.03,123.198 2118.39,138.106 2135.91,155.519 2152.57,175.369 2168.35,197.578 2183.24,222.055 2197.22,248.704 2210.28,277.419 2222.41,308.084 2233.59,340.579 2243.82,374.772 2253.07,410.529 2261.35,447.706 2268.65,486.155 2274.95,525.723 2280.26,566.252 2284.56,607.581 2287.85,649.544 2290.13,691.976 2291.4,734.705 2291.66,777.563 2290.9,820.378 2289.12,862.98 2286.33,905.199 2282.53,946.866 2277.73,987.815 2271.93,1027.88 2265.12,1066.91 2257.34,1104.74 2248.57,1141.23 2238.82,1176.22 2228.12,1209.58 2216.46,1241.18 2203.87,1270.88 2190.34,1298.58 2175.9,1324.15 2160.57,1347.51 2144.34,1368.55 2127.25,1387.19 2109.31,1403.36 2090.54,1416.99 2070.95,1428.03 2050.56,1436.43 2029.4,1442.17 2007.49,1445.21 1984.85,1445.55 1961.49,1443.18 1937.45,1438.12 1912.75,1430.38 1887.41,1419.99 1861.46,1407.01 1834.92,1391.47 1807.83,1373.44 1780.2,1352.99 1752.06,1330.2 1723.45,1305.17 1694.39,1278 1664.9,1248.79 1635.03,1217.65 1604.8,1184.72 1574.24,1150.12 1543.38,1114 1512.25,1076.49 1480.88,1037.74 1449.3,997.921 1417.55,957.177 1385.65,915.674 1353.64,873.577 1321.56,831.055 1289.42,788.278 1257.27,745.414 1225.13,702.637 1193.05,660.115 1161.04,618.018 1129.14,576.515 1097.39,535.771 1065.82,495.948 1034.45,457.204 1003.31,419.695 972.453,383.57 941.89,348.973 911.658,316.041 881.787,284.907 852.306,255.693 823.245,228.518 794.632,203.488 766.497,180.704 738.866,160.256 711.769,142.227 685.231,126.687 659.28,113.699 633.941,103.315 609.239,95.5759 585.199,90.5126 561.845,88.1455 539.2,88.4838 517.287,91.5263 496.128,97.2608 475.743,105.664 456.154,116.704 437.379,130.335 419.438,146.503 402.347,165.144 386.125,186.184 370.787,209.538 356.349,235.114 342.825,262.81 330.229,292.515 318.573,324.111 307.868,357.471 298.126,392.464 289.356,428.949 281.567,466.781 274.767,505.808 268.962,545.877 264.158,586.826 260.36,628.493 257.572,670.712 255.796,713.314 255.035,756.129 255.288,798.987 256.557,841.716 258.839,884.148 262.133,926.111 266.434,967.44 271.739,1007.97 278.043,1047.54 285.339,1085.99 293.619,1123.16 302.876,1158.92 313.101,1193.11 324.283,1225.61 336.411,1256.27 349.472,1284.99 363.455,1311.64 378.345,1336.11 394.127,1358.32 410.785,1378.17 428.303,1395.59 446.664,1410.49 465.848,1422.83 485.838,1432.56 506.612,1439.63 528.151,1444.02 550.432,1445.72 573.435,1444.7 597.134,1440.98 621.508,1434.58 646.532,1425.51 672.181,1413.82 698.429,1399.55 725.249,1382.76 752.617,1363.51 780.503,1341.88 808.881,1317.96 837.721,1291.85 866.996,1263.64 896.676,1233.45 926.731,1201.4 957.132,1167.62 987.848,1132.24 1018.85,1095.41 1050.1,1057.26 1081.58,1017.96 1113.25,977.654 1145.08,936.51 1177.03,894.689 1209.08,852.359 1241.2,809.688 1273.35,766.846 "></polyline>
 </svg>
-<figcaption class="figure-caption">Figure&nbsp;1: Parametric Plots</figcaption>
-</figure>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

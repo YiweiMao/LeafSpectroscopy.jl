@@ -32,7 +32,14 @@
     "href": "notebooks/intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "Welcome to LeafSpectroscopy.jl\n\n\n\nCode\nusing Pkg; Pkg.activate(\".\")\n\n\nThe photon flux (or intensity?) \\(n\\) in mol/m\\(^2\\)/s is given by \\[\n    n = \\frac{IV}{A N_A hc} \\lambda\n\\] where \\(I\\) is current, \\(V\\) is the forward voltage, \\(A\\) is the illumination area, \\(N_A=6.022\\times 10^{23}\\) is Avogadro’s constant, \\(h=6.626\\times 10^{-34}\\)~J\\(\\cdot\\)s\\(^{-1}\\) is Planck’s constant, \\(c=299792458\\)~m\\(\\cdot\\)s\\(^{-1}\\) is the speed of light, and \\(\\lambda\\) is the wavelength.\n\n\nCode\nusing Plots\n\nplot(sin, \n     x-&gt;sin(2x), \n     0, \n     2π, \n     leg=false, \n     fill=(0,:lavender))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots"
+    "text": "Welcome to LeafSpectroscopy.jl\nCode\nusing Pkg; Pkg.activate(\".\")"
+  },
+  {
+    "objectID": "notebooks/intro.html#photon-flux-for-modulating-beam",
+    "href": "notebooks/intro.html#photon-flux-for-modulating-beam",
+    "title": "Introduction",
+    "section": "Photon Flux for modulating beam",
+    "text": "Photon Flux for modulating beam\nThe photon flux (or intensity?) \\(n\\) in μmol/m\\(^2\\)/s is given by \\[\n    n = \\frac{IV}{A N_A hc} \\lambda\n\\] where \\(I\\) is current, \\(V\\) is the forward voltage, \\(A\\) is the illumination area, \\(N_A=6.022\\times 10^{23}\\) is Avogadro’s constant, \\(h=6.626\\times 10^{-34}\\) J\\(\\cdot\\)s\\(^{-1}\\) is Planck’s constant, \\(c=299792458\\) m\\(\\cdot\\)s\\(^{-1}\\) is the speed of light, and \\(\\lambda\\) is the wavelength.\n\n\nCode\nλ = [405,470,533,635].*1e-9 # nm\nI = 10e-3 # A\nV = [3.5, 3.2, 3.4, 2.2] # V\nN_A = 6.022e23\nh = 6.626e-34 # J/s\nc = 299792458 # m/s\nA = π*0.002^2 # m²\n\nn = I.*V.*λ ./ (A*N_A*h*c)\n\nn*1e6\n\n\n4-element Vector{Float64}:\n  9429.753016929846\n 10005.184153412689\n 12055.448618892602\n  9293.379163774951\n\n\nHowever, not all the light from the LED makes it through the fiber.\nAssuming the fiber core is 60 μm, most of the LED light is lost. Since the LED SMA diameter is 3 mm, around (60/3000)^2 of the LED output photon flux is able to make it through a single fiber. Also, assume that the optical efficiency of the fiber is around 90%. Therefore, the photon intensity for the blue fiber in μmol/m^2/s is\n\n\nCode\nusing DataFrames\nnn = n*1e6 * (60/3000)^2 * 0.9\ndf = DataFrame(wavelength_nm=λ, photon_flux_umol=nn)\ndf\n\n\n4×2 DataFrame\n\n\n\nRow\nwavelength_nm\nphoton_flux_umol\n\n\n\nFloat64\nFloat64\n\n\n\n\n1\n4.05e-7\n3.39471\n\n\n2\n4.7e-7\n3.60187\n\n\n3\n5.33e-7\n4.33996\n\n\n4\n6.35e-7\n3.34562\n\n\n\n\n\n\n\n\nCode"
   },
   {
     "objectID": "notebooks/tutorial-quarto.html",
@@ -84,11 +91,11 @@
     "text": "Other Julia resources\nFor a summary of Julia features, check out https://cheatsheet.juliadocs.org/.\nI went through the MIT course introducing Julia which was excellently designed and motivated. Highly recommended!\nThe course is called Introduction to Computational Thinking https://computationalthinking.mit.edu/Fall23/ and I think it is well titled as I certainly had to develop a different way of thinking to code in Julia. Below are some major points that changes the way you code."
   },
   {
-    "objectID": "notebooks/tutorial-julia.html#structs-are-immutable",
-    "href": "notebooks/tutorial-julia.html#structs-are-immutable",
+    "objectID": "notebooks/tutorial-julia.html#structs-are-immutable-by-default",
+    "href": "notebooks/tutorial-julia.html#structs-are-immutable-by-default",
     "title": "Julia for the beginner*",
-    "section": "Structs are immutable",
-    "text": "Structs are immutable\nA struct datatype is like a Python class with only immutable attributes. It defines a data type. To make a struct mutatble, simply use mutable struct instead of struct.\n\n# Define a mutable struct named Person\nmutable struct Person\n    name::String\n    age::Int\nend\n\n# Create an instance of Person\njulia = Person(\"Julia\", 30)\n\n# Since it's mutable, we can change the fields after creation\njulia.age = 31  # This is allowed and the age is updated to 31\n\nprintln(\"Name: \", julia.name, \", Age: \", julia.age)  # Outputs: Name: Julia, Age: 31\n\nName: Julia, Age: 31"
+    "section": "Structs are immutable by default",
+    "text": "Structs are immutable by default\nA struct datatype is like a Python class with only immutable attributes. It defines a data type. To make a struct mutable, simply use mutable struct instead of struct.\n\n# Define a mutable struct named Person\nmutable struct Person\n    name::String\n    age::Int\nend\n\n# Create an instance of Person\njulia = Person(\"Julia\", 30)\n\n# Since it's mutable, we can change the fields after creation\njulia.age = 31  # This is allowed and the age is updated to 31\n\nprintln(\"Name: \", julia.name, \", Age: \", julia.age)  # Outputs: Name: Julia, Age: 31\n\nName: Julia, Age: 31"
   },
   {
     "objectID": "notebooks/tutorial-julia.html#more-macros",
