@@ -54,6 +54,11 @@ git commit -m "some_descriptive_commit_message"
 
 Files can be selectively ignored - such as build files - by defining them in `.gitignore`.
 
+## Push
+After committing your changes, you can push them to the repository. 
+```bash
+git push
+```
 
 ## Rebase
 Rebasing integrates changes from one branch to another and changes the branch to start at a different commit (sort of like pretending you started work from the new point). 
