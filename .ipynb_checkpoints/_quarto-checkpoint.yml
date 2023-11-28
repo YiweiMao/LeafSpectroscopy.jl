@@ -33,6 +33,7 @@ website:
       - section: "Method"
         contents:
           - notebooks/spectrometers.ipynb
+          - notebooks/trigger.ipynb
       - section: "Tutorials"
         contents:
           - notebooks/tutorial-quarto.ipynb
