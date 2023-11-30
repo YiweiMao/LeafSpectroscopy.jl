@@ -34,6 +34,7 @@ website:
         contents:
           - notebooks/spectrometers.ipynb
           - notebooks/trigger.ipynb
+          - notebooks/walz_pam_programmer.ipynb
       - section: "Tutorials"
         contents:
           - notebooks/tutorial-quarto.ipynb
