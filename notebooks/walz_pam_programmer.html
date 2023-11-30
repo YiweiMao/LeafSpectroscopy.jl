@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Yiwei Mao">
-<meta name="dcterms.date" content="2023-11-04">
+<meta name="dcterms.date" content="2023-11-29">
 
-<title>LeafSpectroscopy.jl - How to contribute</title>
+<title>LeafSpectroscopy.jl - Walz PAM System Programmer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/tutorial-quarto.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../notebooks/tutorial-quarto.html">How to contribute</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/spectrometers.html">Method</a></li><li class="breadcrumb-item"><a href="../notebooks/walz_pam_programmer.html">Walz PAM System Programmer</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -228,7 +228,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/walz_pam_programmer.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/walz_pam_programmer.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Walz PAM System Programmer</span></a>
   </div>
 </li>
@@ -245,7 +245,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/tutorial-quarto.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notebooks/tutorial-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to contribute</span></a>
   </div>
 </li>
@@ -279,19 +279,11 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contributions" id="toc-contributions" class="nav-link active" data-scroll-target="#contributions">Contributions</a></li>
-  <li><a href="#why-something-like-this" id="toc-why-something-like-this" class="nav-link" data-scroll-target="#why-something-like-this">Why something like this?</a></li>
-  <li><a href="#installing-quarto-optional" id="toc-installing-quarto-optional" class="nav-link" data-scroll-target="#installing-quarto-optional">Installing Quarto (Optional)</a>
+  <li><a href="#walz" id="toc-walz" class="nav-link active" data-scroll-target="#walz">Walz</a>
   <ul class="collapse">
-  <li><a href="#quarto-commands" id="toc-quarto-commands" class="nav-link" data-scroll-target="#quarto-commands">Quarto Commands</a></li>
+  <li><a href="#example-writing-a-walz-program" id="toc-example-writing-a-walz-program" class="nav-link" data-scroll-target="#example-writing-a-walz-program">Example writing a Walz program</a></li>
+  <li><a href="#cannot-read-the-walz-data-files" id="toc-cannot-read-the-walz-data-files" class="nav-link" data-scroll-target="#cannot-read-the-walz-data-files">Cannot read the Walz data files?</a></li>
   </ul></li>
-  <li><a href="#installing-jupyter-lab" id="toc-installing-jupyter-lab" class="nav-link" data-scroll-target="#installing-jupyter-lab">Installing Jupyter Lab</a></li>
-  <li><a href="#installing-julia" id="toc-installing-julia" class="nav-link" data-scroll-target="#installing-julia">Installing Julia</a>
-  <ul class="collapse">
-  <li><a href="#jupyter-lab-packages" id="toc-jupyter-lab-packages" class="nav-link" data-scroll-target="#jupyter-lab-packages">Jupyter Lab Packages</a></li>
-  <li><a href="#vscode-extensions" id="toc-vscode-extensions" class="nav-link" data-scroll-target="#vscode-extensions">VScode extensions</a></li>
-  </ul></li>
-  <li><a href="#notebook-time" id="toc-notebook-time" class="nav-link" data-scroll-target="#notebook-time">Notebook time!</a></li>
   </ul>
 </nav>
     </div>
@@ -300,7 +292,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How to contribute</h1>
+<h1 class="title">Walz PAM System Programmer</h1>
 </div>
 
 
@@ -317,7 +309,7 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 4, 2023</p>
+      <p class="date">November 29, 2023</p>
     </div>
   </div>
   
@@ -327,127 +319,218 @@ gtag('config', 'G-WPM46XDMMW', { 'anonymize_ip': true});
 
 </header>
 
-<p>This repository is a collection of Jupyter notebooks that is autogenerated into this documentation website using <a href="https://quarto.org/"><code>Quarto</code></a>. These notebooks can be run using VScode or Jupyter Lab. The purpose of this guide is to get you setup using Julia in Juypyter notebooks and inspire you to create a documentation site of your own.</p>
-<section id="contributions" class="level1">
-<h1>Contributions</h1>
-<p>Just add or edit Jupyter notebooks to the <code>notebooks</code> directory and all the manual labour is taken care of by Quarto and Github. Just send a pull request with your updates.</p>
-<p>If you find a bug, raise a Github issue in our repository.</p>
-</section>
-<section id="why-something-like-this" class="level1">
-<h1>Why something like this?</h1>
-<p>Here are a few reasons why this way of software development using Quarto is fantastic:</p>
-<ol type="1">
-<li>All the tools are open-source and free.</li>
-<li>Documentation and source code (and plots) are together in one place thereby encouraging documentation as you write code.</li>
-<li>After some setup at the start, this site can be updated automatically.</li>
-<li>The search function on the website is incredibly helpful for finding the right bit of documentation for others and for future you.</li>
-<li>Interactive plots can be presented.</li>
-</ol>
-</section>
-<section id="installing-quarto-optional" class="level1">
-<h1>Installing Quarto (Optional)</h1>
-<p><a href="https://quarto.org/">Quarto</a> is an open source technical publishing system for creating beautiful articles, websites, blogs, books, slides, and more. It is kind of like LaTeX but more modern and content is written in markdown. That’s great because that’s exactly what is used in Jupyter notebooks. Since Quarto supports Python, R, and Julia, we can turn our notebooks into this beautiful documentation website effortlessly.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Jupyter notebooks can be converted to HTML, PDF, markdown, and TEX files. Quarto uses <code>pandoc</code> to do this.</p>
-</div>
-</div>
-<p>To install Quarto, follow the instructions listed at <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>. While you can preview the generated site locally, Github offers free hosting for every repository (known as <a href="https://pages.github.com/">Github Pages</a>) and Actions which allow you to automate Continuous Integration (CI) tests on each push/pull request, and website deployment. <a href="https://github.com/features/actions">Github Actions</a> are defined in <code>.github/workflows/name-of-action.yml</code> and you can have more than one.</p>
-<p>Technically, you don’t need to install Quarto to start contributing since the documentation site deployment is automated when branch <code>main</code> is updated. But if you want to see how your updates render on local webpage, you’ll need it.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="What about Documenter.jl?">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-What about Documenter.jl?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can use Quarto with Documenter.jl to document your Julia packages. Since notebooks contain markdown, these can be converted to <code>.md</code> format for Documenter.jl. See <a href="https://quarto.org/docs/tools/jupyter-lab.html" class="uri">https://quarto.org/docs/tools/jupyter-lab.html</a> and</p>
-</div>
-</div>
-<p>To create a new repo with Quarto setup for Github pages, follow this guide <a href="https://quarto.org/docs/publishing/github-pages.html" class="uri">https://quarto.org/docs/publishing/github-pages.html</a>.</p>
-<section id="quarto-commands" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-commands">Quarto Commands</h2>
-<p>Assuming you now have a repo setup (or using this one), you can preview the documentation site locally by running the following in a repository directory.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>To update the deployed website, you can run</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> publish gh-pages</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can also litter your documentation with coloured callout boxes like this one. See <a href="https://quarto.org/docs/authoring/callouts.html" class="uri">https://quarto.org/docs/authoring/callouts.html</a> for how to do these.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="installing-jupyter-lab" class="level1">
-<h1>Installing Jupyter Lab</h1>
-<p>You can install Jupyter lab (I prefer lab over notebook - there is dark mode) by following the steps at <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html" class="uri">https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html</a>.</p>
-</section>
-<section id="installing-julia" class="level1">
-<h1>Installing Julia</h1>
-<p>First, download the latest version of Julia at <a href="https://julialang.org/downloads/" class="uri">https://julialang.org/downloads/</a>. Then follow the install guide for Julia at <a href="https://julialang.org/downloads/platform/" class="uri">https://julialang.org/downloads/platform/</a>.</p>
-<section id="jupyter-lab-packages" class="level2">
-<h2 class="anchored" data-anchor-id="jupyter-lab-packages">Jupyter Lab Packages</h2>
-<p>To use Julia in Jupyter, you will also need some Julia specific packages installed. These can be added using</p>
+<section id="walz" class="level1">
+<h1>Walz</h1>
+<p>A copy of the operating manual can be found here: <a href="https://www.walz.com/files/downloads/manuals/gfs-3000/GFS-3000_Manual_9.pdf" class="uri">https://www.walz.com/files/downloads/manuals/gfs-3000/GFS-3000_Manual_9.pdf</a></p>
+<p>Each program is a text file with a key value</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"Revise"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"IJulia"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">build</span>(<span class="st">"IJulia"</span>) <span class="co"># add to Jupyter kernel list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If somehow old Julia versions appear in Jupyter that you want gone, you can use</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to find the offending versions then remove them using</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec uninstall julia-X.Y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>replacing X.Y with the version number.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>prestuff <span class="op">=</span> [[<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings Timing----"'</span>],</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Storing Interval ="'</span>,<span class="st">'"005/060"'</span>],</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"1Yield/y*MP ="'</span>,<span class="st">'"1"'</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings Central Unit----"'</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set CO2 ="'</span>,<span class="st">'"380"'</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set H2O(ppm) ="'</span>,<span class="st">'"20000"'</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set Flow ="'</span>,<span class="st">'"750"'</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Mode ="'</span>,<span class="st">'"MP"'</span>],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings Meas. Head----"'</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set PARtop ="'</span>,<span class="st">'"0"'</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Impeller ="'</span>,<span class="st">'"5"'</span>],</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set Tcuv ="'</span>,<span class="st">'"25.0"'</span>],</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Fluorescence----"'</span>],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"--- Fluorescence Module 3050-F ---"'</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Fo</span><span class="ch">\'</span><span class="st">-Mode FL ="'</span>,<span class="st">'"off"'</span>],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Gain FL ="'</span>,<span class="st">'"low"'</span>],</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"M-Light FL ="'</span>,<span class="st">'"on"'</span>],</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"SatWidth FL ="'</span>,<span class="st">'"1.2"'</span>],</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Sat-Int FL ="'</span>,<span class="st">'"12"'</span>],</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"ML-Amp FL ="'</span>,<span class="st">'"12"'</span>],</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"ETR-Fact FL ="'</span>,<span class="st">'"0.84"'</span>],</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set Z-Offset FL"'</span>,<span class="st">'""'</span>],</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"ML-Frequency F ="'</span>,<span class="st">'"low"'</span>],</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings End----"'</span>]]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>poststuff <span class="op">=</span> [[<span class="st">'"Remark ="'</span>,<span class="st">'"----System off but keep flow for leaf---"'</span>],</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"H2O Control off"'</span>,<span class="st">'""'</span>],</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set CO2 ="'</span>,<span class="st">'"380"'</span>],</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set Flow ="'</span>,<span class="st">'"750"'</span>],</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings Meas. Head ----"'</span>],</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"TempControl off"'</span>,<span class="st">'""'</span>],</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Set PARtop ="'</span>,<span class="st">'"0"'</span>],</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Impeller ="'</span>,<span class="st">'"1"'</span>],</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            [<span class="st">'"Remark ="'</span>,<span class="st">'"----Settings End----"'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Walz(<span class="bu">object</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.commands <span class="op">=</span> [[<span class="st">'"Remark ="'</span>,<span class="st">'"end of program"'</span>]]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.insert(mode<span class="op">=</span><span class="st">"comment"</span>,value<span class="op">=</span><span class="st">"dark adapt"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.insert(mode<span class="op">=</span><span class="st">"interval"</span>,value<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> insert(<span class="va">self</span>,mode<span class="op">=</span><span class="st">"comment"</span>,value<span class="op">=</span><span class="st">""</span>,row_num<span class="op">=-</span><span class="dv">1</span>):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""mode can be 'comment', 'par', 'interval', 'tleaf', 'saturate', or any valid Walz command. """</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>   mode <span class="op">==</span> <span class="st">"comment"</span>: <span class="co"># do not use ',' in your comment. that's the delimiter</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert(row_num,[<span class="st">'"Remark ="'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>])</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mode <span class="op">==</span> <span class="st">"par"</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert(row_num,[<span class="st">'"Set PARtop ="'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>])</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mode <span class="op">==</span> <span class="st">"interval"</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert(row_num,[<span class="st">'"Interval ="'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>])</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mode <span class="op">==</span> <span class="st">"tleaf"</span>: <span class="co"># e.g. 30.0</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert([<span class="st">'"Set Tleaf ="'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>])</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> mode <span class="op">==</span> <span class="st">"saturate"</span>:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert(row_num,[<span class="st">'"Fv/Fm"'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>]) <span class="co"># or "Yield"</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.commands.insert(row_num,[<span class="ss">f'"</span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">"'</span>,<span class="ss">f'"</span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">"'</span>])</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save(<span class="va">self</span>,path,headerfooter<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""path must have .prg extention"""</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> headerfooter: </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            np.savetxt(path,prestuff<span class="op">+</span><span class="va">self</span>.commands<span class="op">+</span>poststuff,delimiter<span class="op">=</span><span class="st">","</span>,fmt<span class="op">=</span><span class="st">'</span><span class="sc">%s</span><span class="st">'</span>,newline<span class="op">=</span><span class="st">'</span><span class="ch">\r\n</span><span class="st">'</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            np.savetxt(path,<span class="va">self</span>.commands,delimiter<span class="op">=</span><span class="st">","</span>,fmt<span class="op">=</span><span class="st">'</span><span class="sc">%s</span><span class="st">'</span>,newline<span class="op">=</span><span class="st">'</span><span class="ch">\r\n</span><span class="st">'</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load(<span class="va">self</span>,path):</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.commands <span class="op">=</span> np.loadtxt(path,dtype<span class="op">=</span><span class="bu">str</span>,delimiter<span class="op">=</span><span class="st">","</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> pd.DataFrame(<span class="va">self</span>.commands,columns<span class="op">=</span>[<span class="st">"key"</span>,<span class="st">"value"</span>]).to_string()</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>program <span class="op">=</span> Walz()</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>program</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>            key             value
+0    "Remark ="      "dark adapt"
+1  "Interval ="              "10"
+2    "Remark ="  "end of program"</code></pre>
+</div>
+</div>
+<section id="example-writing-a-walz-program" class="level3">
+<h3 class="anchored" data-anchor-id="example-writing-a-walz-program">Example writing a Walz program</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>program.insert(mode<span class="op">=</span><span class="st">"Start storing"</span>,value<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>program.insert(mode<span class="op">=</span><span class="st">"Auto ZP ="</span>,value<span class="op">=</span><span class="st">"005/180"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"interval"</span>,<span class="dv">10</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"saturate"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"interval"</span>,<span class="dv">10</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"par"</span>,<span class="dv">2000</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"interval"</span>,<span class="dv">10</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"saturate"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"interval"</span>,<span class="dv">10</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"par"</span>,<span class="dv">0</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>program.insert(<span class="st">"interval"</span>,<span class="dv">10</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>program.insert(mode<span class="op">=</span><span class="st">"Stop storing"</span>,value<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>program</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>                key             value
+0        "Remark ="      "dark adapt"
+1      "Interval ="              "10"
+2   "Start storing"                ""
+3       "Auto ZP ="         "005/180"
+4      "Interval ="              "10"
+5           "Fv/Fm"                ""
+6      "Interval ="              "10"
+7    "Set PARtop ="            "2000"
+8      "Interval ="              "10"
+9           "Fv/Fm"                ""
+10     "Interval ="              "10"
+11   "Set PARtop ="               "0"
+12     "Interval ="              "10"
+13   "Stop storing"                ""
+14       "Remark ="  "end of program"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>program.save(<span class="st">"../data/walz_test.prg"</span>,headerfooter<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>program.load(<span class="st">"../data/walz_test.prg"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>program.commands</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>array([['"Remark ="', '"----Settings Timing----"'],
+       ['"Storing Interval ="', '"005/060"'],
+       ['"1Yield/y*MP ="', '"1"'],
+       ['"Remark ="', '"----Settings Central Unit----"'],
+       ['"Set CO2 ="', '"380"'],
+       ['"Set H2O(ppm) ="', '"20000"'],
+       ['"Set Flow ="', '"750"'],
+       ['"Mode ="', '"MP"'],
+       ['"Remark ="', '"----Settings Meas. Head----"'],
+       ['"Set PARtop ="', '"0"'],
+       ['"Impeller ="', '"5"'],
+       ['"Set Tcuv ="', '"25.0"'],
+       ['"Remark ="', '"----Fluorescence----"'],
+       ['"Remark ="', '"--- Fluorescence Module 3050-F ---"'],
+       ['"Fo\'-Mode FL ="', '"off"'],
+       ['"Gain FL ="', '"low"'],
+       ['"M-Light FL ="', '"on"'],
+       ['"SatWidth FL ="', '"1.2"'],
+       ['"Sat-Int FL ="', '"12"'],
+       ['"ML-Amp FL ="', '"12"'],
+       ['"ETR-Fact FL ="', '"0.84"'],
+       ['"Set Z-Offset FL"', '""'],
+       ['"ML-Frequency F ="', '"low"'],
+       ['"Remark ="', '"----Settings End----"'],
+       ['"Remark ="', '"dark adapt"'],
+       ['"Interval ="', '"10"'],
+       ['"Start storing"', '""'],
+       ['"Auto ZP ="', '"005/180"'],
+       ['"Interval ="', '"10"'],
+       ['"Fv/Fm"', '""'],
+       ['"Interval ="', '"10"'],
+       ['"Set PARtop ="', '"2000"'],
+       ['"Interval ="', '"10"'],
+       ['"Fv/Fm"', '""'],
+       ['"Interval ="', '"10"'],
+       ['"Set PARtop ="', '"0"'],
+       ['"Interval ="', '"10"'],
+       ['"Stop storing"', '""'],
+       ['"Remark ="', '"end of program"'],
+       ['"Remark ="', '"----System off but keep flow for leaf---"'],
+       ['"H2O Control off"', '""'],
+       ['"Set CO2 ="', '"380"'],
+       ['"Set Flow ="', '"750"'],
+       ['"Remark ="', '"----Settings Meas. Head ----"'],
+       ['"TempControl off"', '""'],
+       ['"Set PARtop ="', '"0"'],
+       ['"Impeller ="', '"1"'],
+       ['"Remark ="', '"----Settings End----"']], dtype='&lt;U42')</code></pre>
+</div>
+</div>
 </section>
-<section id="vscode-extensions" class="level2">
-<h2 class="anchored" data-anchor-id="vscode-extensions">VScode extensions</h2>
-<p>To use Julia in VScode, you will need to install the extensions <code>julia</code> and <code>julia-vscode</code>.</p>
-</section>
-</section>
-<section id="notebook-time" class="level1">
-<h1>Notebook time!</h1>
-<p>The notebooks in this repository used julia-1.9.3.</p>
-<p>At the top of each notebook, some metadata is needed.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "name of webpage"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "some description"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "John Smith and Jane Doe"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "12/31/2023"</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#date-modified: "01/01/2024"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: false</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> julia-1.9</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then, at the start of each notebook, you can include some Julia code.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg; Pkg</span>.<span class="fu">activate</span>(<span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!---
-using Pkg; Pkg.activate(".")
--->
-<p>Now you can import your packages and start coding away!</p>
+<section id="cannot-read-the-walz-data-files" class="level2">
+<h2 class="anchored" data-anchor-id="cannot-read-the-walz-data-files">Cannot read the Walz data files?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>cat ..<span class="op">/</span>data<span class="op">/</span>null.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Date;Time;Code;Object;Area;Status;Comment;CO2abs;dCO2ZP;dCO2MP;H2Oabs;dH2OZP;dH2OMP;Flow;Pamb;Aux1;Aux2;Tcuv;Tleaf;Tamb;Ttop;PARtop;PARbot;PARamb;Imp;rh;E;VPD;GH2O;A;ci;ca;wa;Fo;Fm;Fv/Fm;F;Fm';Fo';Fo'calc;Yield;ETR;qP;qL;qN;NPQ;Y(NPQ);ETR-Fac
+yyyy-mm-dd;hh:mm:ss;string;No;cm2;string;;ppm;ppm;ppm;ppm;ppm;ppm;�mol/s;kPa;mV;mV;�C;�C;�C;�C;�mol m-2 s-1;�mol m-2 s-1;�mol m-2 s-1;steps;%;mmol m-2 s-1;Pa/kPa;mmol m-2 s-1;�mol m-2 s-1;ppm;ppm;ppm;mV;mV;;mV;mV;mV;mV;;;;;;;;
+2023-11-30;02:03:38;ZPi005;0000;2;AFF2FF112FF---2FF-------------;;376.4445;-6.418268;;10796.93;-461.9133;;749.74;98.488;2610;423;25.07;25.21;24.78;25.09;0.0;0.2;0.0;5;;;;;;;370.03;10335.0;;;;-1;;;;;;;;;;;
+2023-11-30;02:06:53;MP_005;0001;2;AFF2FF112FF---2FF-------------;;377.3369;-6.418268;-6.574264;11305.95;-461.9133;-499.1138;749.59;98.490;2626;438;25.02;25.18;24.58;25.05;0.2;0.6;0.2;5;34.99;-0.141015;21.70421;-6.497128;0.6378542;515.2257;377.18;11268.8;0;4;1.0000;0;;;;;;;;;;;
+2023-11-30;02:07:25;MP_005;0001;2;AFF2FF112FF---2FF-------------;;376.998;-6.418268;-6.655115;11340.57;-461.9133;-494.4123;749.71;98.488;2626;440;25.01;25.19;24.70;25.03;0.6;0.2;0.1;5;35.14;-0.1232169;21.69279;-5.680087;0.9342519;616.5405;376.76;11308.1;0;4;1.0000;0;;;;;;;;;;;
+2023-11-30;02:08:55;MP_005;0001;2;AFF2FF112FF---2FF-------------;;379.651;-6.418268;-9.772825;11522.47;-461.9133;-482.8048;748.10;98.492;2635;447;25.02;25.19;24.67;25.02;0.4;0.6;0.1;5;35.72;-7.905445E-02;21.4997;-3.677002;12.57755;5612.008;376.30;11501.6;0;4;1.0000;0;;;;;;;;;;;
+2023-11-30;02:09:27;MP_005;0001;2;AFF2FF112FF---2FF-------------;;377.4967;-6.418268;-6.714802;11442.59;-461.9133;-465.5997;749.68;98.494;2638;449;25.02;25.22;24.54;25.02;0.9;0.2;0.3;5;35.53;-1.397803E-02;21.61211;-0.6467684;1.116794;3013.735;377.20;11438.9;2;4;0.5000;2;;;;;;;;;;;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"../data/null.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb5 in position 310: invalid start byte</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

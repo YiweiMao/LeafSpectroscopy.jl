@@ -2,34 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-quarto.html</loc>
-    <lastmod>2023-11-28T23:06:55.385Z</lastmod>
+    <lastmod>2023-11-30T00:36:22.714Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-julia.html</loc>
-    <lastmod>2023-11-28T23:06:49.205Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/LeafSpectroscopy.html</loc>
-    <lastmod>2023-11-28T23:06:43.625Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-instrument.html</loc>
-    <lastmod>2023-11-28T23:06:41.673Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/intro.html</loc>
-    <lastmod>2023-11-28T23:06:42.657Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/about.html</loc>
-    <lastmod>2023-11-28T23:06:43.317Z</lastmod>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/walz_pam_programmer.html</loc>
+    <lastmod>2023-11-30T00:36:16.530Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/spectrometers.html</loc>
-    <lastmod>2023-11-28T23:06:48.529Z</lastmod>
+    <lastmod>2023-11-30T00:36:15.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/about.html</loc>
+    <lastmod>2023-11-30T00:36:10.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/intro.html</loc>
+    <lastmod>2023-11-30T00:36:09.666Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-instrument.html</loc>
+    <lastmod>2023-11-30T00:36:08.658Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/LeafSpectroscopy.html</loc>
+    <lastmod>2023-11-30T00:36:10.614Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/tutorial-julia.html</loc>
+    <lastmod>2023-11-30T00:36:16.162Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/YiweiMao/LeafSpectroscopy.jl/notebooks/trigger.html</loc>
-    <lastmod>2023-11-28T23:06:54.917Z</lastmod>
+    <lastmod>2023-11-30T00:36:22.258Z</lastmod>
   </url>
 </urlset>
